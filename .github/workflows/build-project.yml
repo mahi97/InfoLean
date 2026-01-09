@@ -43,7 +43,7 @@ jobs:
         with:
           auto-config: false
           use-github-cache: false
-          use-mathlib-cache:  true
+          use-mathlib-cache:  false
 
       - name: "Check that InfoLean.lean is up to date"
         run: |
