@@ -46,7 +46,7 @@ jobs:
           use-mathlib-cache:  false
 
       - name:  Update lake dependencies
-        run: ~/. elan/bin/lake update
+        run: ~/.elan/bin/lake update
 
       - name: Update mathlib dependency
         run: ~/.elan/bin/lake update mathlib
