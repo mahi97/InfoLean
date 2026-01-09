@@ -13,22 +13,20 @@ on:
     branches:
       - main
     paths:
-      - '**/*.lean'
+      - '**/*. lean'
       - 'lean-toolchain'
       - 'lakefile.toml'
-      - 'lake-manifest.json'
-  workflow_dispatch: # Allow manual triggering of the workflow from the GitHub Actions interface
+      - 'lake-manifest. json'
+  workflow_dispatch:
 
-# Cancel previous runs if a new commit is pushed to the same PR or branch
 concurrency:
-  group: ${{ github.ref }}  # Group runs by the ref (branch or PR)
-  cancel-in-progress: true  # Cancel any ongoing runs in the same group
+  group: ${{ github.ref }}
+  cancel-in-progress: true
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages and modify PR labels
 permissions:
-  contents: read          # Read access to repository contents
-  pages: write            # Write access to GitHub Pages
-  id-token: write         # Write access to ID tokens
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build_project:
@@ -38,23 +36,24 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v6
         with:
-          fetch-depth: 0 # Fetch all history for all branches and tags
+          fetch-depth: 0
 
       - name: Install and configure Lean, and get mathlib cache
         uses: leanprover/lean-action@434f25c2f80ded67bba02502ad3a86f25db50709 # v1.3.0
         with:
           auto-config: false
           use-github-cache: false
-          use-mathlib-cache: true
+          use-mathlib-cache:  true
 
       - name: "Check that InfoLean.lean is up to date"
         run: |
           ~/.elan/bin/lake exe mk_all --check || echo "ERROR: please ensure that InfoLean.lean is up to date, for instance by running lake exe mk_all"
 
-      - name: Update lake dependencies
-        run: ~/.elan/bin/lake update
+      - name:  Update lake dependencies
+        run: ~/. elan/bin/lake update
 
-      - name: Cache build artifacts
+      # MOVED:  Cache now comes AFTER lake update
+      - name:  Cache build artifacts
         uses: actions/cache@v5
         with:
           path: .lake/build
@@ -62,4 +61,4 @@ jobs:
           restore-keys: LakeBuild-
 
       - name: Build project
-        run: ~/.elan/bin/lake build InfoLean
+        run: ~/. elan/bin/lake build InfoLean
