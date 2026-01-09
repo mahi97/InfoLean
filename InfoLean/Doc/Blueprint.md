@@ -17,7 +17,7 @@ Status legend: todo / wip / done.
 - [done] chain rule (finite)
 
 ## Mutual information
-- [todo] mutualInformation definition
+- [done] Entropy/MutualInformation.lean: mutualInformation definition + basic identity
 - [todo] nonnegativity
 - [todo] independence implies zero
 - [todo] data processing (finite)

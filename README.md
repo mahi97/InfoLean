@@ -18,12 +18,14 @@
 - [x] Add Bernoulli entropy bridge to `Real.binEntropy`
 - [x] Add KL divergence alias (mathlib re-export)
 - [x] Add channel alias (Markov kernel)
+- [x] Add book-based examples directory and MacKay Chapter 1 exercises
+- [x] Add MacKay Chapter 1 Lean solutions for exercises 1.1–1.12
 - [ ] Add entropy invariance under bijection
 - [ ] Add entropy upper bound by `log (Fintype.card)`
 - [ ] Add uniform distribution entropy lemma
 - [x] Define conditional entropy for `PMF`
 - [x] Prove chain rule (finite)
-- [ ] Define mutual information and basic identities
+- [x] Define mutual information and basic identities
 - [ ] Prove nonnegativity and independence implies zero
 - [ ] Define finite KL divergence for `PMF` and relate to entropy
 - [ ] Add `I(X;Y) = KL(p_xy || p_x_prod_p_y)` (finite)
@@ -46,6 +48,7 @@ alphabets, then extensions toward measure-theoretic definitions and kernel-based
 - `InfoLean/Divergence/`: KL divergence wrappers and future finite KL
 - `InfoLean/Channels/`: channels as Markov kernels
 - `InfoLean/Examples/`: small worked examples
+- `InfoLean/Examples/Books/`: textbook exercise sets, organized by book and chapter
 - `InfoLean/Doc/Blueprint.md`: theorem checklist and statuses
 - `InfoLean/Mathlib/`: local patches or missing declarations for upstreaming
 

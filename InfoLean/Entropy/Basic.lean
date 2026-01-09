@@ -18,4 +18,14 @@ lemma entropy_nonneg (p : PMF α) : 0 ≤ entropy p := by
   intro a ha
   exact negMulLog_pmf_nonneg p a
 
+theorem entropy_zero_eq_zero {p : PMF α} (h : ∀ a, p a = 0) : entropy p = 0 := by
+  classical
+  unfold entropy
+  simp [Finset.sum_eq_zero, h]
+
+theorem entropy_one_eq_zero {p : PMF α} (h : ∀ a, p a = 1) : entropy p = 0 := by
+  classical
+  unfold entropy
+  simp [Finset.sum_eq_zero, h]
+
 end InfoLean
