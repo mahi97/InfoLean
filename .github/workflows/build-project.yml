@@ -45,12 +45,17 @@ jobs:
           use-github-cache: false
           use-mathlib-cache:  false
 
+      - name:  Update lake dependencies
+        run: ~/. elan/bin/lake update
+
+      - name: Update mathlib dependency
+        run: ~/.elan/bin/lake update mathlib
+
       - name: "Check that InfoLean.lean is up to date"
         run: |
           ~/.elan/bin/lake exe mk_all --check || echo "ERROR: please ensure that InfoLean.lean is up to date, for instance by running lake exe mk_all"
 
-      - name:  Update lake dependencies
-        run: ~/. elan/bin/lake update
+
 
       # MOVED:  Cache now comes AFTER lake update
       - name:  Cache build artifacts
